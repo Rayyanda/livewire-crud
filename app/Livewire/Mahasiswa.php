@@ -5,21 +5,27 @@ namespace App\Livewire;
 use App\Models\Mahasiswa as  ModelsMahasiswa;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Mahasiswa extends Component
 {
 
     #[Validate]
-    public  $nama, $nim, $prodi = "";
+    public  $uuid= "";
     
     protected $rules = [ 
-        'nama' => 'required', 
-        'nim' => 'required',
-        'prodi' => 'required'
+        'uuid' => 'required', 
     ];
     public function render()
     {
        
         return view('livewire.mahasiswa',['mahasiswa'=>ModelsMahasiswa::paginate(10)]);
+    }
+
+    public function delMhs()
+    {
+        DB::table('mahasiswa')->where('uuid','=',$this->uuid)->delete();
+        session()->flash('message','Data berhasil dihapus');
+        return redirect()->to('/mahasiswa/'.$this->uuid);
     }
 }

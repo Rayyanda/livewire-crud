@@ -54,3 +54,7 @@
   });
 
 })(jQuery); // End of use strict
+
+function delModal(id){
+  document.getElementById("delId").value=id;
+}

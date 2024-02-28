@@ -146,8 +146,8 @@
             <div id="content-wrapper" class="d-flex flex-column">
         
                 <!-- Main Content -->
+                
                 <div id="content">
-        
                     <!-- Topbar -->
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
         
@@ -355,8 +355,9 @@
                     <!-- Begin Page Content -->
                     {{ $slot }}
                     <!-- /.container-fluid -->
-        
                 </div>
+        
+              
                 <!-- End of Main Content -->
         
                 <!-- Footer -->
@@ -408,7 +409,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+    <script src="js/sb-admin-2.js"></script>
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 
