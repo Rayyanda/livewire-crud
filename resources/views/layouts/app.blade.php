@@ -6,6 +6,7 @@
         <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href={{ asset('css/sb-admin-2.css') }}>
         <link rel="stylesheet" href={{ asset('css/sb-admin-2.min.css') }}>
         <link href={{ asset('vendor/fontawesome-free/css/all.min.css') }} rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -32,7 +33,7 @@
         
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">
+                    <a class="nav-link" wire:navigate href="/">
                         <i class="bi-speedometer2 fs-4"></i>
                         <span>Dashboard</span></a>
                 </li>
@@ -118,9 +119,9 @@
         
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" wire:navigate href="/mahasiswa">
                         <i class="fas fa-fw fa-table"></i>
-                        <span>Tables</span></a>
+                        <span>Mahasiswa</span></a>
                 </li>
         
                 <!-- Divider -->
@@ -319,7 +320,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
                                     <img class="img-profile rounded-circle"
                                         src="img/undraw_profile.svg">
                                 </a>
