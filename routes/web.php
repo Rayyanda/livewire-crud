@@ -26,6 +26,7 @@ Route::get('/', \App\Livewire\Dashboard::class)->name('dashboard')->middleware('
 
 Route::prefix('mahasiswa')->group(function(){
     Route::get('/',Mahasiswa::class)->name('indeks_mahasiswa');
+    Route::get('/del/{uuid}',[Mahasiswa::class,'delMhs'])->name('hapus_data_mahasiswa');
     Route::get('/forms',Create::class)->name('mhs_create_page');
 })->middleware('auth');
 

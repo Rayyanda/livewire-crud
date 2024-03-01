@@ -63,21 +63,19 @@
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <form wire:submit='delMhs'>
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="deleteModalLabel"><i class="bi-info-circle"></i> Info</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="fw-bold">Apakah Anda yakin ingin menghapus data ini?</p>
-                    <input type="text" wire:model='uuid' id="delId" class="form-control">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel"><i class="bi-info-circle"></i> Info</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <p class="fw-bold">Apakah Anda yakin ingin menghapus data ini?</p>
                   
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                  <button type="submit" class="btn btn-danger"><i class="bi-trash"></i> Hapus</button>
-                </div>
-            </form>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <a href="" wire:navigate id="delId" class="btn btn-danger">Hapus <i class="bi-trash-fill"></i></a>
+              </div>
           </div>
         </div>
       </div>

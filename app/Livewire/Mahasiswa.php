@@ -22,10 +22,10 @@ class Mahasiswa extends Component
         return view('livewire.mahasiswa',['mahasiswa'=>ModelsMahasiswa::paginate(10)]);
     }
 
-    public function delMhs()
+    public function delMhs($uuid)
     {
-        DB::table('mahasiswa')->where('uuid','=',$this->uuid)->delete();
+        DB::table('mahasiswa')->where('uuid','=',$uuid)->delete();
         session()->flash('message','Data berhasil dihapus');
-        return redirect()->to('/mahasiswa/'.$this->uuid);
+        return redirect()->to('/mahasiswa');
     }
 }

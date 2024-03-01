@@ -56,5 +56,5 @@
 })(jQuery); // End of use strict
 
 function delModal(id){
-  document.getElementById("delId").value=id;
+  document.getElementById("delId").href = `/mahasiswa/del/${id}`
 }
