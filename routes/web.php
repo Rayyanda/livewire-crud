@@ -3,6 +3,7 @@
 use App\Livewire\Login;
 use App\Livewire\Mahasiswa;
 use App\Livewire\Mahasiswa\Create;
+use App\Livewire\Mahasiswa\Update;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::prefix('mahasiswa')->group(function(){
     Route::get('/',Mahasiswa::class)->name('indeks_mahasiswa');
     Route::get('/del/{uuid}',[Mahasiswa::class,'delMhs'])->name('hapus_data_mahasiswa');
     Route::get('/forms',Create::class)->name('mhs_create_page');
+    Route::get('/forms/{uuid}',Update::class)->name('mhs_update_page');
 })->middleware('auth');
 
 

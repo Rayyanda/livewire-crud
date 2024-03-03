@@ -3,19 +3,26 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
+    <p class="mb-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ad optio dignissimos sint perspiciatis, quod commodi dicta quae, doloribus accusantium quia, dolorem natus error nam modi culpa placeat cupiditate unde.
+    </p>
 
     <div class="mb-2">
         <a href="/mahasiswa/forms" wire:navigate class="btn btn-success"><i class="bi-plus"></i> Tambah Data</a>
-        <a href="#" wire:navigate class="btn btn-primary"><i class="bi-pencil-square"></i> Edit Data</a>
+    </div>
+    <div class="mb-2">
+        @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('message') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Mahasiswa</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -44,9 +51,11 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->th_masuk }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-danger" onclick="delModal('{{ $item->uuid }}')" data-bs-toggle="modal" data-bs-target="#deleteModal" >
+                                    <a href="/mahasiswa/forms/{{ $item->uuid }}" wire:navigate class="btn btn-sm btn-success m-1"><i class="bi-pencil-square"></i></a>
+                                    <a href="#" class="btn btn-danger btn-sm m-1" onclick="delModal('{{ $item->uuid }}')" data-bs-toggle="modal" data-bs-target="#deleteModal" >
                                         <i class="bi-trash-fill"></i>
                                     </a>
+                                    
                                 </td>
                             </tr>
 

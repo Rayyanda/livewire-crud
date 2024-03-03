@@ -28,4 +28,10 @@ class Mahasiswa extends Component
         session()->flash('message','Data berhasil dihapus');
         return redirect()->to('/mahasiswa');
     }
+
+    public function editForms($uuid)
+    {
+        return view();
+    }
+
 }

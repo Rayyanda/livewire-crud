@@ -7,35 +7,23 @@
 
     <div class="card">
         <div class="card-header">
-            <p class="fw-bold fs-3 text-primary">Create</p>
+            <p class="fw-bold fs-3 text-primary">Update</p>
         </div>
         <div class="card-body">
-            <form wire:submit='store' >
+            <form wire:submit='update' >
                 <div class="row mb-3">
                   <label for="nimMahasiswa" class="col-sm-2 col-form-label">NIM</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" wire:model='nim' id="nimMahasiswa">
+                    <input type="text" class="form-control"  wire:model='nim' id="nimMahasiswa">
                     @error('nim') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="namaMahasiswa" class="col-sm-2 col-form-label">Nama</label>
                   <div class="col-sm-10">
-                    <input type="text" wire:model='nama' class="form-control" id="namaMahasiswa">
+                    <input type="text" wire:model='nama'  class="form-control" id="namaMahasiswa">
                     @error('nama') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
                   </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="fakultasId" class="col-sm-2 col-form-label">Fakultas</label>
-                    <div class="col-sm-10">
-                        <select class="form-select"  wire:model.live='fakultas_id' aria-label="Default select example">
-                            <option selected>Pilih Fakultas</option>
-                            @foreach ($fakultas as $item)
-                                <option value={{ $item->id }}>{{ $item->nama_fakultas }}</option>
-                            @endforeach
-                          </select>
-                          @error('fakultas_id') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
-                    </div>
                 </div>
                 <div class="row mb-3">
                     <label for="prodiMahasiswa" class="col-sm-2 col-form-label">Prodi</label>
@@ -79,9 +67,20 @@
                         @error('email') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                
+                <div class="row mb-3">
+                    <label for="fakultasId" class="col-sm-2 col-form-label">Fakultas</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" wire:model='fakultas_id' aria-label="Default select example">
+                            <option selected>Pilih Fakultas</option>
+                            @foreach ($fakultas as $item)
+                                <option value={{ $item->id }}>{{ $item->nama_fakultas }}</option>
+                            @endforeach
+                          </select>
+                          @error('fakultas_id') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
+                    </div>
+                </div>
                 <div class="mb-2">
-                    <button type="submit" class="btn btn-success"> Tambah <i class="bi-plus-circle"></i></button>
+                    <button type="submit" class="btn btn-success"> Simpan Perubahan <i class="bi-floppy"></i></button>
                 </div>
               </form>
         </div>
