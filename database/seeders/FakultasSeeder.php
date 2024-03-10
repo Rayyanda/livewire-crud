@@ -15,7 +15,7 @@ class FakultasSeeder extends Seeder
     {
         DB::table('fakultas')->insert([
             ['nama_fakultas'=>'Sastra'],
-            ['nama_fakultas'=>'Ekononi']
+            ['nama_fakultas'=>'Ekonomi']
         ]);
     }
 }

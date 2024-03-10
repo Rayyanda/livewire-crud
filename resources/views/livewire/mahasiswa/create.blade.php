@@ -14,8 +14,8 @@
                 <div class="row mb-3">
                   <label for="nimMahasiswa" class="col-sm-2 col-form-label">NIM</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" wire:model='nim' id="nimMahasiswa">
-                    @error('nim') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
+                    <input type="text" class="@error('nim') is-invalid @else is-valid @enderror form-control" wire:model.blur='nim' id="nimMahasiswa">
+                    @error('nim') <span class="error fs-6 text-danger">{{ $message }} </span> @enderror
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -40,7 +40,7 @@
                 <div class="row mb-3">
                     <label for="prodiMahasiswa" class="col-sm-2 col-form-label">Prodi</label>
                     <div class="col-sm-10">
-                        <input type="text" wire:model='prodi' id="prodiMahasiswa" class="form-control">
+                        <input type="text" wire:model.blur='prodi' id="prodiMahasiswa" class="@error('prodi') is-invalid @enderror form-control">
                         @error('prodi') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="row mb-3">
                     <label for="emailMahasiswa" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" wire:model='email' id="emailMahasiswa" class="form-control">
+                        <input type="email" wire:model.blur='email' id="emailMahasiswa" class="form-control">
                         @error('email') <span class="error fs-6 text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
