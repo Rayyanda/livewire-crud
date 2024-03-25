@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 class Mahasiswa extends Component
 {
 
+    public $search = "";
+
     #[Validate]
     public  $uuid= "";
     
@@ -18,8 +20,8 @@ class Mahasiswa extends Component
     ];
     public function render()
     {
-       
-        return view('livewire.mahasiswa',['mahasiswa'=>ModelsMahasiswa::paginate(10)]);
+       $this->search == "" ?  $mahasiswas = ModelsMahasiswa::paginate(10) : $mahasiswas = ModelsMahasiswa::where('nama','like',"%".$this->search."%")->get();
+        return view('livewire.mahasiswa',['mahasiswa'=>$mahasiswas]);
     }
 
     public function delMhs($uuid)

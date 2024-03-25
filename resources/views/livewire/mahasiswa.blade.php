@@ -25,6 +25,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Mahasiswa</h6>
         </div>
         <div class="card-body">
+            <div class="mb-2">
+                <input type="text" wire:model.live='search' class="form-control search" id="">
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered border-secondary" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -42,7 +45,7 @@
                     <tbody>
                         
                         @foreach ($mahasiswa as $item)
-                            <tr>
+                            <tr wire:key='{{ $item->uuid }}'>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->nim }}</td>
                                 <td>{{ $item->nama }}</td>
@@ -52,7 +55,7 @@
                                 <td>{{ $item->th_masuk }}</td>
                                 <td>
                                     <a href="/mahasiswa/forms/{{ $item->uuid }}" wire:navigate class="btn btn-sm btn-success m-1"><i class="bi-pencil-square"></i></a>
-                                    <a href="#" class="btn btn-danger btn-sm m-1" onclick="delModal('{{ $item->uuid }}')" data-bs-toggle="modal" data-bs-target="#deleteModal" >
+                                    <a href="#" class="btn btn-danger btn-sm m-1" wire:confirm='Arey' data-bs-toggle="modal" data-bs-target="#deleteModal" >
                                         <i class="bi-trash-fill"></i>
                                     </a>
                                     
@@ -66,7 +69,7 @@
             </div>
         </div>
         <div class="card-footer">
-            {{ $mahasiswa->links() }}
+            {{-- {{ $mahasiswa->links() }} --}}
         </div>
     </div>
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
